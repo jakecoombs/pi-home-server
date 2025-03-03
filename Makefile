@@ -6,8 +6,16 @@ hass:
 hass-down:
 	podman compose -f compose.hass.yaml down
 
-.PHONY: up
-up: hass
+.PHONY: dozzle
+dozzle:
+	podman compose -f compose.dozzle.yaml up -d
 
-.PHONY: down
-down: hass-down
+.PHONY: dozzle-down
+dozzle-down:
+	podman compose -f compose.dozzle.yaml down
+
+.PHONY: up-all
+up-all: hass dozzle
+
+.PHONY: down-all
+down-all: hass-down dozzle-down

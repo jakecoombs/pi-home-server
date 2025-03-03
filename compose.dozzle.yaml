@@ -1,0 +1,8 @@
+services:
+  dozzle:
+    container_name: dozzle
+    image: ghcr.io/amir20/dozzle:latest
+    volumes:
+      - $XDG_RUNTIME_DIR/podman/podman.sock:/var/run/docker.sock
+    ports:
+      - 8080:8080

@@ -5,17 +5,17 @@ services:
     volumes:
       - ./data/homeassistant:/config
       - /etc/localtime:/etc/localtime:ro
-      - /run/dbus:/run/dbus:ro
-    restart: unless-stopped
+      - $XDG_RUNTIME_DIR/dbus:/run/dbus:ro
+    restart: always
     network_mode: host
 
   matter-server:
     container_name: matter-server
     image: ghcr.io/home-assistant-libs/python-matter-server:stable
-    restart: unless-stopped
+    restart: always
     security_opt:
       - apparmor=unconfined
     volumes:
       - ./data/matter-server:/data
-      - /run/dbus:/run/dbus:ro
+      - $XDG_RUNTIME_DIR/dbus:/run/dbus:ro
     network_mode: host

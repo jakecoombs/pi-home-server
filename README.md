@@ -20,6 +20,10 @@ Bring down the containers:
 make down
 ```
 
+## Dozzle
+
+The server runs dozzle to help view the logs of the running containers.
+
 ## Home Assistant
 
 The server runs [Home Assistant](https://www.home-assistant.io/) to control smart devices around the house.

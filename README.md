@@ -1,11 +1,10 @@
 # Raspberry Pi Home Server
 
-A raspberry pi home server using podman compose.
+A raspberry pi home server using docker compose.
 
 ## Required Packages
 
-- podman
-- podman-compose
+- docker
 - make
 
 ## Usage
@@ -27,8 +26,4 @@ The server runs dozzle to help view the logs of the running containers.
 ## Home Assistant
 
 The server runs [Home Assistant](https://www.home-assistant.io/) to control smart devices around the house.
-The compose configuration can be found in `compose.hass.yaml`
-
-Running `make hass` brings up the following containers:
-- homeassistant
-- matter-server
+In order for home assistant to work with matter enabled devices, the matter-server container is used as a bridge.

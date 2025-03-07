@@ -1,21 +1,8 @@
-.PHONY: hass
-hass:
-	podman compose -f compose.hass.yaml up -d
+up:
+	docker compose up -d
 
-.PHONY: hass-down
-hass-down:
-	podman compose -f compose.hass.yaml down
+down:
+	docker compose down
 
-.PHONY: dozzle
-dozzle:
-	podman compose -f compose.dozzle.yaml up -d
-
-.PHONY: dozzle-down
-dozzle-down:
-	podman compose -f compose.dozzle.yaml down
-
-.PHONY: up-all
-up-all: hass dozzle
-
-.PHONY: down-all
-down-all: hass-down dozzle-down
+pull:
+	docker compose pull

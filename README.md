@@ -2,6 +2,10 @@
 
 A raspberry pi home server using docker compose.
 
+```sh
+git clone git@github.com:jakecoombs/pi-home-server.git ~/server
+```
+
 ## Required Packages
 
 - docker
@@ -22,6 +26,10 @@ make down
 ## Dozzle
 
 The server runs dozzle to help view the logs of the running containers.
+
+## NGINX Reverse Proxy
+
+The server uses NGINX reverse proxy to connect domains and subdomains to running docker containers.
 
 ## Home Assistant
 

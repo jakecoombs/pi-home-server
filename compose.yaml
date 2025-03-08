@@ -1,27 +1,8 @@
+include:
+  - compose.proxy.yaml
+  - compose.ha.yaml
+
 services:
-  matter-server:
-    container_name: matter-server
-    image: ghcr.io/home-assistant-libs/python-matter-server:stable
-    restart: always
-    security_opt:
-      - apparmor=unconfined
-    volumes:
-      - $HOME/server/data/matter-server:/data
-      - $XDG_RUNTIME_DIR/dbus:/run/dbus:ro
-    network_mode: host
-
-  homeassistant:
-    container_name: homeassistant
-    image: ghcr.io/home-assistant/home-assistant:stable
-    restart: always
-    volumes:
-      - $HOME/server/data/homeassistant:/config
-      - /etc/localtime:/etc/localtime:ro
-      - $XDG_RUNTIME_DIR/dbus:/run/dbus:ro
-    network_mode: host
-    depends_on:
-      - matter-server
-
   dozzle:
     container_name: dozzle
     image: ghcr.io/amir20/dozzle:latest
@@ -31,4 +12,6 @@ services:
     ports:
       - 8080:8080
 
-  
+networks:
+  net:
+    external: true

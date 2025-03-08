@@ -28,3 +28,7 @@ services:
     depends_on:
       - matter-server
       - reverse-proxy
+
+networks:
+  net:
+    external: true
